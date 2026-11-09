@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080817">
+  <meta name="description" content="MODO — aprende a tu ritmo. Cursos prácticos, creativos y profesionales.">
+  <title>MODO | Aprende a tu ritmo</title>
+  <link rel="icon" href="assets/img/COOL.jpg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="splash" class="splash">
+    <img src="assets/img/COOL.jpg" alt="COOL" class="splash-logo">
+    <div class="loader"></div><p>Preparando tu espacio de aprendizaje</p>
+  </div>
+
+  <div id="welcome" class="welcome hidden" role="dialog" aria-modal="true">
+    <div class="welcome-card">
+      <img src="assets/img/COOL.jpg" alt="COOL" class="welcome-logo">
+      <span class="eyebrow">TU ESPACIO DE APRENDIZAJE</span>
+      <h1>Bienvenido a <span>MODO</span></h1>
+      <p>Aprende algo nuevo. Desarrolla tus habilidades. Avanza a tu manera.</p>
+      <button class="btn btn-primary" id="welcomeContinue">Comenzar <span>→</span></button>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="MODO inicio">
+      <img src="assets/img/COOL.jpg" alt="Logo COOL">
+      <span>MODO<small>ACADEMIA DIGITAL</small></span>
+    </a>
+    <nav class="desktop-nav">
+      <a href="#cursos">Cursos</a><a href="#precios">Precios</a><a href="#nosotros">Nosotros</a>
+    </nav>
+    <div class="top-actions">
+      <button id="themeToggle" class="icon-btn" aria-label="Cambiar tema" title="Cambiar tema">☼</button>
+      <button id="openAuth" class="btn btn-outline">Ingresar</button>
+      <button id="logoutBtn" class="btn btn-outline hidden">Salir</button>
+      <button class="menu-btn" id="menuToggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><i></i> FORMACIÓN SIN LÍMITES</span>
+        <h1>Tu próximo nivel<br>empieza en <span>MODO.</span></h1>
+        <p>Explora cursos prácticos, aprende con especialistas y convierte cada idea en una nueva habilidad.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cursos">Explorar cursos <span>↗</span></a>
+          <button class="btn btn-ghost" id="heroLogin">Crear mi cuenta</button>
+        </div>
+        <div class="hero-meta"><span><b>01</b> Aprende</span><span><b>02</b> Practica</span><span><b>03</b> Evoluciona</span></div>
+      </div>
+      <div class="hero-art">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-logo-wrap"><img src="assets/img/COOL.jpg" alt="COOL logo"></div>
+        <div class="floating-tag tag-top">IDEAS EN ACCIÓN <b>✦</b></div>
+        <div class="floating-tag tag-bottom"><b>∞</b> POSIBILIDADES</div>
+        <div class="hero-dot dot-one"></div><div class="hero-dot dot-two"></div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><strong>100%</strong><span>Aprendizaje flexible</span></div>
+      <div><strong>A tu ritmo</strong><span>Avanza cuando quieras</span></div>
+      <div><strong>Multitemático</strong><span>Habilidades para la vida</span></div>
+    </section>
+
+    <section class="section courses-section" id="cursos">
+      <div class="section-heading">
+        <div><span class="eyebrow">APRENDE CON MODO</span><h2>Encuentra tu <span>próximo curso.</span></h2></div>
+        <p>Contenido claro, práctico y diseñado para que cada clase te acerque a tus objetivos.</p>
+      </div>
+      <div id="courseGrid" class="course-grid"></div>
+    </section>
+
+    <section class="section pricing-section" id="precios">
+      <div class="section-heading">
+        <div><span class="eyebrow">OPCIONES PARA APRENDER</span><h2>Una modalidad para <span>cada objetivo.</span></h2></div>
+        <p>Tarifario de referencia de los servicios MODO. Consulta disponibilidad y condiciones antes de realizar tu pago.</p>
+      </div>
+      <div class="pricing-grid" id="pricingGrid"></div>
+      <p class="pricing-note">Los precios están expresados en bolivianos (Bs). La publicación de un curso no implica que esté incluido en todos los paquetes.</p>
+    </section>
+
+    <section class="cta-band">
+      <div><span class="eyebrow">EMPIEZA HOY</span><h2>Una nueva habilidad<br>puede cambiarlo todo.</h2></div>
+      <button class="btn btn-light" id="ctaRegister">Crear cuenta gratis <span>↗</span></button>
+    </section>
+
+    <section class="section about-section" id="nosotros">
+      <div class="section-heading">
+        <div><span class="eyebrow">QUIÉNES SOMOS</span><h2>Conoce al equipo <span>MODO.</span></h2></div>
+        <p>Un equipo comprometido con crear experiencias de aprendizaje accesibles, actuales y de calidad.</p>
+      </div>
+      <div class="team-grid" id="teamGrid"></div>
+    </section>
+  </main>
+
+  <footer><a class="footer-brand" href="#">MODO<span>●</span></a><p>Aprende a tu ritmo. Crece a tu manera.</p><small>© <span id="year"></span> MODO. Todos los derechos reservados.</small></footer>
+
+  <div class="modal hidden" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal-backdrop" data-close="auth"></div>
+    <div class="modal-card auth-card">
+      <button class="modal-close" data-close="auth" aria-label="Cerrar">×</button>
+      <img src="assets/img/COOL.jpg" alt="COOL" class="auth-logo">
+      <span class="eyebrow">BIENVENIDO A MODO</span><h2 id="authTitle">Tu aprendizaje comienza aquí.</h2>
+      <div class="auth-tabs"><button class="active" data-tab="login">Ingresar</button><button data-tab="register">Crear cuenta</button></div>
+      <form id="loginForm" class="auth-form">
+        <label>Usuario<input name="username" autocomplete="username" required minlength="3" placeholder="Tu nombre de usuario"></label>
+        <label>Contraseña<input name="password" type="password" autocomplete="current-password" required minlength="4" placeholder="Tu contraseña"></label>
+        <button class="btn btn-primary full" type="submit">Ingresar a mi cuenta →</button>
+      </form>
+      <form id="registerForm" class="auth-form hidden">
+        <label>Nombre completo<input name="name" required placeholder="Cómo te llamas"></label>
+        <label>Nombre de usuario<input name="username" required minlength="3" placeholder="Crea un usuario"></label>
+        <label>Contraseña<input name="password" type="password" required minlength="4" placeholder="Mínimo 4 caracteres"></label>
+        <label>Repite tu contraseña<input name="confirm" type="password" required minlength="4" placeholder="Confirma tu contraseña"></label>
+        <button class="btn btn-primary full" type="submit">Crear mi cuenta →</button>
+      </form>
+      <p class="privacy-note">Cuenta local: tus datos se guardan únicamente en este dispositivo y navegador. No uses una contraseña que utilices en otros servicios.</p>
+      <p id="authMessage" class="form-message" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="courseModal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close="course"></div>
+    <div class="modal-card course-detail">
+      <button class="modal-close" data-close="course" aria-label="Cerrar">×</button>
+      <div id="courseDetailContent"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="courses.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
