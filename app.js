@@ -59,3 +59,151 @@ function init(){
   setTimeout(()=>{$("#splash").classList.add("done");if(!sessionStorage.getItem("modo_welcomed")){$("#welcome").classList.remove("hidden");sessionStorage.setItem("modo_welcomed","1")}},950);
 }
 init();
+
+/* ==================================
+   MODO TV - CONFIGURACIÓN
+================================== */
+
+const MODO_TV_ITEMS = [
+
+  {
+    type: "video",
+    title: "Video promocional 1",
+    description: "Descubre las novedades de MODO.",
+    youtube: "XGvGjWFBLy4"
+  },
+
+  {
+    type: "video",
+    title: "Video promocional 2",
+    description: "Aprende, descubre y desarrolla nuevas habilidades.",
+    youtube: "lPm4ANsg6XY"
+  },
+
+  {
+    type: "video",
+    title: "Video promocional 3",
+    description: "Conoce nuestras experiencias de aprendizaje.",
+    youtube: "NU-kJ7OKR0w"
+  }
+
+];
+
+
+/* ==================================
+   FUNCIONAMIENTO DEL CARRUSEL
+================================== */
+
+(function initModoTV() {
+
+  const content = document.getElementById("modo-tv-content");
+  const title = document.getElementById("modo-tv-title");
+  const description = document.getElementById("modo-tv-description");
+  const counter = document.getElementById("modo-tv-counter");
+  const dots = document.getElementById("modo-tv-dots");
+
+  const prev = document.getElementById("modo-tv-prev");
+  const next = document.getElementById("modo-tv-next");
+
+  if (!content || !title || !description ||
+      !counter || !dots || !prev || !next) return;
+
+  let current = 0;
+
+  function renderModoTV() {
+
+    const item = MODO_TV_ITEMS[current];
+
+    content.innerHTML = "";
+
+    if (item.type === "video") {
+
+      const iframe = document.createElement("iframe");
+
+      iframe.src =
+        "https://www.youtube-nocookie.com/embed/" +
+        encodeURIComponent(item.youtube) +
+        "?rel=0&playsinline=1";
+
+      iframe.title = item.title;
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+
+      iframe.allowFullscreen = true;
+      iframe.loading = "lazy";
+
+      content.appendChild(iframe);
+
+    } else if (item.type === "banner") {
+
+      const link = document.createElement("a");
+
+      link.href = item.link || "#cursos";
+
+      const image = document.createElement("img");
+
+      image.src = item.image;
+      image.alt = item.title;
+      image.loading = "lazy";
+
+      link.appendChild(image);
+      content.appendChild(link);
+
+    }
+
+    title.textContent = item.title;
+    description.textContent = item.description || "";
+
+    counter.textContent =
+      String(current + 1).padStart(2, "0") +
+      " / " +
+      String(MODO_TV_ITEMS.length).padStart(2, "0");
+
+    dots.innerHTML = "";
+
+    MODO_TV_ITEMS.forEach((item, index) => {
+
+      const dot = document.createElement("button");
+
+      dot.className =
+        "modo-tv-dot" +
+        (index === current ? " active" : "");
+
+      dot.setAttribute(
+        "aria-label",
+        "Mostrar promoción " + (index + 1)
+      );
+
+      dot.addEventListener("click", () => {
+        current = index;
+        renderModoTV();
+      });
+
+      dots.appendChild(dot);
+
+    });
+
+  }
+
+  prev.addEventListener("click", () => {
+
+    current =
+      (current - 1 + MODO_TV_ITEMS.length) %
+      MODO_TV_ITEMS.length;
+
+    renderModoTV();
+
+  });
+
+  next.addEventListener("click", () => {
+
+    current =
+      (current + 1) % MODO_TV_ITEMS.length;
+
+    renderModoTV();
+
+  });
+
+  renderModoTV();
+
+})();
