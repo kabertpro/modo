@@ -48,8 +48,10 @@ window.MODO_PRICES = [
 ];
 
 window.MODO_TEAM = [
-  ["Luciana López","Gerente General"],
-  ["Camila Escobar","Directora de Marketing"],
-  ["Natalia Solís","Vicepresidenta de Asociados"],
-  ["Luciana Solís","Vicepresidenta de Desarrollo Institucional"]
+  ["Luciana López", "Gerente General"],
+  ["Camila Escobar", "Directora de Marketing"],
+  ["Natalia Solíz", "Vicepresidenta de Asociados"],
+  ["Luciana Solíz", "Vicepresidenta de Desarrollo Institucional"],
+  ["Uriel Méndez", "Vicepresidente de Desarrollo Comercial y Alianzas Estratégicas"],
+  ["Zeus Méndez", "Vicepresidente de Relaciones Institucionales e Internacionales"]
 ];
